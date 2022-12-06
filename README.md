@@ -10,5 +10,8 @@ we can use it migrate mysql data to sharding table.
 - 数据一致性校验
 - 数据补偿
 
+![数据迁移](./img/migrate.png)
+## 持续开发中！！！！
+
 
 
