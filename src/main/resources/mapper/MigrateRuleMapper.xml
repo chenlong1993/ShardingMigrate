@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sharding.migrate.mapper.MigrateRuleMapper">
+  <resultMap id="BaseResultMap" type="com.sharding.migrate.domain.MigrateRule">
+    <!--@mbg.generated-->
+    <!--@Table sharding_migrate.migrate_rule-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="logic_table" jdbcType="VARCHAR" property="logicTable" />
+    <result column="database_sharding_key" jdbcType="VARCHAR" property="databaseShardingKey" />
+    <result column="database_sharding_rule" jdbcType="VARCHAR" property="databaseShardingRule" />
+    <result column="table_sharding_key" jdbcType="VARCHAR" property="tableShardingKey" />
+    <result column="table_sharding_rule" jdbcType="VARCHAR" property="tableShardingRule" />
+    <result column="sharding_algorithm" jdbcType="VARCHAR" property="shardingAlgorithm" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, logic_table, database_sharding_key, database_sharding_rule, table_sharding_key, 
+    table_sharding_rule, sharding_algorithm, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sharding_migrate.migrate_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from sharding_migrate.migrate_rule
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sharding.migrate.domain.MigrateRule" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sharding_migrate.migrate_rule (logic_table, database_sharding_key, 
+      database_sharding_rule, table_sharding_key, 
+      table_sharding_rule, sharding_algorithm, create_time, 
+      update_time)
+    values (#{logicTable,jdbcType=VARCHAR}, #{databaseShardingKey,jdbcType=VARCHAR}, 
+      #{databaseShardingRule,jdbcType=VARCHAR}, #{tableShardingKey,jdbcType=VARCHAR}, 
+      #{tableShardingRule,jdbcType=VARCHAR}, #{shardingAlgorithm,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sharding.migrate.domain.MigrateRule" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sharding_migrate.migrate_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logicTable != null">
+        logic_table,
+      </if>
+      <if test="databaseShardingKey != null">
+        database_sharding_key,
+      </if>
+      <if test="databaseShardingRule != null">
+        database_sharding_rule,
+      </if>
+      <if test="tableShardingKey != null">
+        table_sharding_key,
+      </if>
+      <if test="tableShardingRule != null">
+        table_sharding_rule,
+      </if>
+      <if test="shardingAlgorithm != null">
+        sharding_algorithm,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logicTable != null">
+        #{logicTable,jdbcType=VARCHAR},
+      </if>
+      <if test="databaseShardingKey != null">
+        #{databaseShardingKey,jdbcType=VARCHAR},
+      </if>
+      <if test="databaseShardingRule != null">
+        #{databaseShardingRule,jdbcType=VARCHAR},
+      </if>
+      <if test="tableShardingKey != null">
+        #{tableShardingKey,jdbcType=VARCHAR},
+      </if>
+      <if test="tableShardingRule != null">
+        #{tableShardingRule,jdbcType=VARCHAR},
+      </if>
+      <if test="shardingAlgorithm != null">
+        #{shardingAlgorithm,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sharding.migrate.domain.MigrateRule">
+    <!--@mbg.generated-->
+    update sharding_migrate.migrate_rule
+    <set>
+      <if test="logicTable != null">
+        logic_table = #{logicTable,jdbcType=VARCHAR},
+      </if>
+      <if test="databaseShardingKey != null">
+        database_sharding_key = #{databaseShardingKey,jdbcType=VARCHAR},
+      </if>
+      <if test="databaseShardingRule != null">
+        database_sharding_rule = #{databaseShardingRule,jdbcType=VARCHAR},
+      </if>
+      <if test="tableShardingKey != null">
+        table_sharding_key = #{tableShardingKey,jdbcType=VARCHAR},
+      </if>
+      <if test="tableShardingRule != null">
+        table_sharding_rule = #{tableShardingRule,jdbcType=VARCHAR},
+      </if>
+      <if test="shardingAlgorithm != null">
+        sharding_algorithm = #{shardingAlgorithm,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sharding.migrate.domain.MigrateRule">
+    <!--@mbg.generated-->
+    update sharding_migrate.migrate_rule
+    set logic_table = #{logicTable,jdbcType=VARCHAR},
+      database_sharding_key = #{databaseShardingKey,jdbcType=VARCHAR},
+      database_sharding_rule = #{databaseShardingRule,jdbcType=VARCHAR},
+      table_sharding_key = #{tableShardingKey,jdbcType=VARCHAR},
+      table_sharding_rule = #{tableShardingRule,jdbcType=VARCHAR},
+      sharding_algorithm = #{shardingAlgorithm,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

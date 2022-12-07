@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sharding.migrate.mapper.MigrateDatasourceMapper">
+  <resultMap id="BaseResultMap" type="com.sharding.migrate.domain.MigrateDatasource">
+    <!--@mbg.generated-->
+    <!--@Table sharding_migrate.migrate_datasource-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="source_database" jdbcType="VARCHAR" property="sourceDatabase" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="source_username" jdbcType="VARCHAR" property="sourceUsername" />
+    <result column="source_password" jdbcType="VARCHAR" property="sourcePassword" />
+    <result column="target_database" jdbcType="VARCHAR" property="targetDatabase" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="target_username" jdbcType="VARCHAR" property="targetUsername" />
+    <result column="target_password" jdbcType="VARCHAR" property="targetPassword" />
+    <result column="source_real_table" jdbcType="VARCHAR" property="sourceRealTable" />
+    <result column="target_real_table" jdbcType="VARCHAR" property="targetRealTable" />
+    <result column="migrate_rule_id" jdbcType="INTEGER" property="migrateRuleId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, source_database, source_url, source_username, source_password, target_database, 
+    target_url, target_username, target_password, source_real_table, target_real_table, 
+    migrate_rule_id, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sharding_migrate.migrate_datasource
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from sharding_migrate.migrate_datasource
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sharding.migrate.domain.MigrateDatasource" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sharding_migrate.migrate_datasource (source_database, source_url, source_username, 
+      source_password, target_database, target_url, 
+      target_username, target_password, source_real_table, 
+      target_real_table, migrate_rule_id, create_time, 
+      update_time)
+    values (#{sourceDatabase,jdbcType=VARCHAR}, #{sourceUrl,jdbcType=VARCHAR}, #{sourceUsername,jdbcType=VARCHAR}, 
+      #{sourcePassword,jdbcType=VARCHAR}, #{targetDatabase,jdbcType=VARCHAR}, #{targetUrl,jdbcType=VARCHAR}, 
+      #{targetUsername,jdbcType=VARCHAR}, #{targetPassword,jdbcType=VARCHAR}, #{sourceRealTable,jdbcType=VARCHAR}, 
+      #{targetRealTable,jdbcType=VARCHAR}, #{migrateRuleId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sharding.migrate.domain.MigrateDatasource" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sharding_migrate.migrate_datasource
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sourceDatabase != null">
+        source_database,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="sourceUsername != null">
+        source_username,
+      </if>
+      <if test="sourcePassword != null">
+        source_password,
+      </if>
+      <if test="targetDatabase != null">
+        target_database,
+      </if>
+      <if test="targetUrl != null">
+        target_url,
+      </if>
+      <if test="targetUsername != null">
+        target_username,
+      </if>
+      <if test="targetPassword != null">
+        target_password,
+      </if>
+      <if test="sourceRealTable != null">
+        source_real_table,
+      </if>
+      <if test="targetRealTable != null">
+        target_real_table,
+      </if>
+      <if test="migrateRuleId != null">
+        migrate_rule_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sourceDatabase != null">
+        #{sourceDatabase,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUsername != null">
+        #{sourceUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcePassword != null">
+        #{sourcePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="targetDatabase != null">
+        #{targetDatabase,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUsername != null">
+        #{targetUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="targetPassword != null">
+        #{targetPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceRealTable != null">
+        #{sourceRealTable,jdbcType=VARCHAR},
+      </if>
+      <if test="targetRealTable != null">
+        #{targetRealTable,jdbcType=VARCHAR},
+      </if>
+      <if test="migrateRuleId != null">
+        #{migrateRuleId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sharding.migrate.domain.MigrateDatasource">
+    <!--@mbg.generated-->
+    update sharding_migrate.migrate_datasource
+    <set>
+      <if test="sourceDatabase != null">
+        source_database = #{sourceDatabase,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUsername != null">
+        source_username = #{sourceUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcePassword != null">
+        source_password = #{sourcePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="targetDatabase != null">
+        target_database = #{targetDatabase,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        target_url = #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUsername != null">
+        target_username = #{targetUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="targetPassword != null">
+        target_password = #{targetPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceRealTable != null">
+        source_real_table = #{sourceRealTable,jdbcType=VARCHAR},
+      </if>
+      <if test="targetRealTable != null">
+        target_real_table = #{targetRealTable,jdbcType=VARCHAR},
+      </if>
+      <if test="migrateRuleId != null">
+        migrate_rule_id = #{migrateRuleId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sharding.migrate.domain.MigrateDatasource">
+    <!--@mbg.generated-->
+    update sharding_migrate.migrate_datasource
+    set source_database = #{sourceDatabase,jdbcType=VARCHAR},
+      source_url = #{sourceUrl,jdbcType=VARCHAR},
+      source_username = #{sourceUsername,jdbcType=VARCHAR},
+      source_password = #{sourcePassword,jdbcType=VARCHAR},
+      target_database = #{targetDatabase,jdbcType=VARCHAR},
+      target_url = #{targetUrl,jdbcType=VARCHAR},
+      target_username = #{targetUsername,jdbcType=VARCHAR},
+      target_password = #{targetPassword,jdbcType=VARCHAR},
+      source_real_table = #{sourceRealTable,jdbcType=VARCHAR},
+      target_real_table = #{targetRealTable,jdbcType=VARCHAR},
+      migrate_rule_id = #{migrateRuleId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
