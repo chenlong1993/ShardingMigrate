@@ -1,9 +1,6 @@
 package com.sharding.migrate.datasource;
 
-import com.huice.middleware.distributor.config.yml.CustomerYamlFactory;
-import com.huice.middleware.distributor.exception.MdAssert;
 import com.sharding.migrate.config.CustomerYamlFactory;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -14,10 +11,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Optional;
 
-import static com.huice.middleware.distributor.config.yml.CenterConfig.*;
-import static com.huice.middleware.distributor.config.yml.CenterConfig.DATASOURCE_DB_URL;
-import static com.huice.middleware.distributor.config.yml.CenterConfig.DATASOURCE_PASSWORD;
-import static com.huice.middleware.distributor.config.yml.CenterConfig.DATASOURCE_USERNAME;
 
 public class CenterDatasource {
 
