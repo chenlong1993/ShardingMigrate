@@ -14,11 +14,11 @@ public class DbDatasource {
     private Integer serviceId;
 //    @MdColumn(name = "dbsource_type", order = 1)
     private String dbsourceType;
-    @MdColumn(name = "inner_host", order = 2)
+//    @MdColumn(name = "inner_host", order = 2)
     private String innerHost;
-    @MdColumn(name = "front_host", order = 3)
+//    @MdColumn(name = "front_host", order = 3)
     private String frontHost;
-    @MdColumn(name = "host_port", order = 4)
+//    @MdColumn(name = "host_port", order = 4)
     private String hostPort;
     @MdColumn(name = "salt", order = 5)
     private String salt;
@@ -26,9 +26,9 @@ public class DbDatasource {
     private String databaseName;
     @MdColumn(name = "db_user", order = 7)
     private String dbUser;
-    @MdColumn(name = "db_pwd", order = 8)
+//    @MdColumn(name = "db_pwd", order = 8)
     private String dbPwd;
-    @MdColumn(name = "is_master", order = 9)
+//    @MdColumn(name = "is_master", order = 9)
     private Byte isMaster;
     @MdColumn(name = "follow_mater_inner_host", order = 10)
     private String followMaterInnerHost;
