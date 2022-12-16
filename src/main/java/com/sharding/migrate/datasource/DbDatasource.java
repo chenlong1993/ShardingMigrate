@@ -20,27 +20,27 @@ public class DbDatasource {
     private String frontHost;
 //    @MdColumn(name = "host_port", order = 4)
     private String hostPort;
-    @MdColumn(name = "salt", order = 5)
+//    @MdColumn(name = "salt", order = 5)
     private String salt;
-    @MdColumn(name = "database_name", order = 6)
+//    @MdColumn(name = "database_name", order = 6)
     private String databaseName;
-    @MdColumn(name = "db_user", order = 7)
+//    @MdColumn(name = "db_user", order = 7)
     private String dbUser;
 //    @MdColumn(name = "db_pwd", order = 8)
     private String dbPwd;
 //    @MdColumn(name = "is_master", order = 9)
     private Byte isMaster;
-    @MdColumn(name = "follow_mater_inner_host", order = 10)
+//    @MdColumn(name = "follow_mater_inner_host", order = 10)
     private String followMaterInnerHost;
-    @MdColumn(name = "slave_node", order = 11)
+//    @MdColumn(name = "slave_node", order = 11)
     private String slaveNode;
-    @MdColumn(name = "hash_check", order = 12)
+//    @MdColumn(name = "hash_check", order = 12)
     private String hashCheck;
-    @MdColumn(name = "is_default", order = 13)
+//    @MdColumn(name = "is_default", order = 13)
     private Byte isDefault;
-    @MdColumn(name = "remark", order = 14)
+//    @MdColumn(name = "remark", order = 14)
     private String remark;
-    @MdColumn(name = "modified", order = 15)
+//    @MdColumn(name = "modified", order = 15)
     private Timestamp modified;
 
     public Long getRecId() {
