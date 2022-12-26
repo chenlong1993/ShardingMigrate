@@ -1,6 +1,5 @@
 package com.sharding.migrate.controller;
 
-import com.sharding.migrate.datasource.DBContextHolder;
 import com.sharding.migrate.domain.TOrder;
 import com.sharding.migrate.service.DatabasesourceService;
 import com.sharding.migrate.service.TOrderService;
@@ -30,20 +29,7 @@ public class MigrateController {
     @GetMapping("/test")
     public  String test() throws Exception {
 
-        //切换到数据库dbtest2
-        String datasourceId="db2";
-        databasesourceService.changeDb(datasourceId);
-        List<TOrder> userList= tOrderService.getAllOrder();
-        System.out.println(userList.toString());
 
-        //再切换到数据库dbtest3
-        databasesourceService.changeDb("db1");
-        List<TOrder> userList2= tOrderService.getAllOrder();
-        System.out.println(userList2.toString());
-
-
-        //切回主数据源
-        DBContextHolder.clearDataSource();
         return "ok";
     }
 }
