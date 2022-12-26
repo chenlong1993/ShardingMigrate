@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sharding.migrate.mapper.TOrderMapper">
+  <resultMap id="BaseResultMap" type="com.sharding.migrate.domain.TOrder">
+    <!--@mbg.generated-->
+    <!--@Table db1.t_order-->
+    <id column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    order_id, user_id
+  </sql>
+  <select id="selectList" resultType="com.sharding.migrate.domain.TOrder">
+    <!--@mbg.generated-->
+    select
+    *
+    from t_order
+  </select>
+</mapper>

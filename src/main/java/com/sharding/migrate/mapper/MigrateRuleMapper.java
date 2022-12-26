@@ -1,7 +1,9 @@
 package com.sharding.migrate.mapper;
 
 import com.sharding.migrate.domain.MigrateRule;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface MigrateRuleMapper {
     int deleteByPrimaryKey(Long id);
 

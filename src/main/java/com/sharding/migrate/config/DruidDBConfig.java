@@ -5,8 +5,6 @@ import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -18,21 +16,21 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author : JCccc
- * @CreateTime : 2019/10/22
- * @Description :
- **/
+ * @ClassName DruidDBConfig
+ * @Author ：daiyu
+ * @Date 2022-12-26 10:43
+ * @Description：
+ */
 @Configuration
 @EnableTransactionManagement
-public class MultipleDSConfiguration {
-    private final Logger log = LoggerFactory.getLogger(getClass());
-
+public class DruidDBConfig {
     // adi数据库连接信息
     @Value("${spring.datasource.url}")
     private String dbUrl;
@@ -86,7 +84,6 @@ public class MultipleDSConfiguration {
 
 
     }
-
 
     /**
      * 注册一个StatViewServlet    druid监控页面配置1-帐号密码配置
@@ -149,21 +146,19 @@ public class MultipleDSConfiguration {
         //  sqlSessionFactoryBean.setTypeAliasesPackage("com.testdb.dbsource.pojo");
 
         //手动配置mybatis的mapper.xml资源路径,如果单纯使用注解方式,不需要配置该行
-        // sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:mybatis/mapper/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
-
 
     /**
      * 读取驼峰命名设置
      *
      * @return
      */
-//    @Bean
-//    @ConfigurationProperties(prefix = "mybatis.configuration")
-//    public org.apache.ibatis.session.Configuration configuration() {
-//        return new org.apache.ibatis.session.Configuration();
-//    }
-
+    @Bean
+    @ConfigurationProperties(prefix = "mybatis.configuration")
+    public org.apache.ibatis.session.Configuration configuration() {
+        return new org.apache.ibatis.session.Configuration();
+    }
 
 }

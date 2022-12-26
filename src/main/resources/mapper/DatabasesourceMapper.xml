@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sharding.migrate.mapper.DatabasesourceMapper">
+  <resultMap id="BaseResultMap" type="com.sharding.migrate.domain.Databasesource">
+    <!--@mbg.generated-->
+    <!--@Table sharding_migrate.databasesource-->
+    <result column="datasource_id" jdbcType="VARCHAR" property="datasourceId" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="pass_word" jdbcType="VARCHAR" property="passWord" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="databasetype" jdbcType="VARCHAR" property="databasetype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    datasource_id, url, user_name, pass_word, code, databasetype
+  </sql>
+  <insert id="insert" parameterType="com.sharding.migrate.domain.Databasesource">
+    <!--@mbg.generated-->
+    insert into sharding_migrate.databasesource (datasource_id, url, user_name, 
+      pass_word, code, databasetype
+      )
+    values (#{datasourceId,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{passWord,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{databasetype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sharding.migrate.domain.Databasesource">
+    <!--@mbg.generated-->
+    insert into sharding_migrate.databasesource
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="datasourceId != null">
+        datasource_id,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="passWord != null">
+        pass_word,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="databasetype != null">
+        databasetype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="datasourceId != null">
+        #{datasourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="passWord != null">
+        #{passWord,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="databasetype != null">
+        #{databasetype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectAll" resultType="com.sharding.migrate.domain.Databasesource">
+    <!--@mbg.generated-->
+    select
+    *
+    from databasesource
+  </select>
+</mapper>
