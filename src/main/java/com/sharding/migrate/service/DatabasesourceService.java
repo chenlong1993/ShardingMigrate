@@ -17,9 +17,6 @@ public class DatabasesourceService  extends AbstractCheckoutDataSource  {
     private DatabasesourceMapper databasesourceMapper;
 
 
-    public static void main(String[] args) {
-
-    }
 
 
 
