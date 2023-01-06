@@ -15,5 +15,12 @@ public class Databasesource {
     private String userName;
     private String passWord;
     private String code;
-    private String databasetype;
+    /**
+     * 数据源类型，
+     * 1:MYSQL，PG
+     * 2:Elasticsearch
+     * 3:MongoDB
+     */
+    private Integer databasetype;
+
 }

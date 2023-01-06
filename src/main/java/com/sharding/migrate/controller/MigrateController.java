@@ -1,13 +1,11 @@
 package com.sharding.migrate.controller;
 
-import com.sharding.migrate.domain.TOrder;
-import com.sharding.migrate.service.DatabasesourceService;
-import com.sharding.migrate.service.TOrderService;
+import com.sharding.migrate.service.impl.DatabasesourceService;
+import com.sharding.migrate.service.impl.TOrderService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @ClassName MigrateController
