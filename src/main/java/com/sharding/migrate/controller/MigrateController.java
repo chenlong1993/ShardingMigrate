@@ -22,12 +22,13 @@ public class MigrateController {
 
     /**
      * 查询所有
+     *
      * @return
      */
     @GetMapping("/test")
-    public  String test() throws Exception {
+    public String test() throws Exception {
 
 
-        return "ok";
+        return "这里是一条响应数据";
     }
 }
