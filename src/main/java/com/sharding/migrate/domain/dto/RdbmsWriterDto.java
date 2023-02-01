@@ -15,6 +15,9 @@ import java.io.Serializable;
 @Data
 public class RdbmsWriterDto implements Serializable {
 
+    /**
+     * SQL 前缀
+     */
     private String preSql;
 
     private String postSql;
