@@ -1,19 +1,11 @@
 package com.sharding.migrate.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.sharding.migrate.domain.MigrateDatasource;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface MigrateDatasourceMapper {
-    int deleteByPrimaryKey(Long id);
+public interface MigrateDatasourceMapper  extends BaseMapper<MigrateDatasource> {
 
-    int insert(MigrateDatasource record);
-
-    int insertSelective(MigrateDatasource record);
-
-    MigrateDatasource selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(MigrateDatasource record);
-
-    int updateByPrimaryKey(MigrateDatasource record);
 }
