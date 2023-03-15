@@ -16,10 +16,10 @@ public class DatabasesourceConfig {
     @Resource
     private DataSourcesMapper dataSourcesMapper;
 
-    @PostConstruct
-    public List<Databasesource> getAllDatasource(){
-        log.info("项目启动，正在加载数据库信息");
-        return dataSourcesMapper.selectAll();
-    }
+//    @PostConstruct
+//    public List<Databasesource> getAllDatasource(){
+//        log.info("项目启动，正在加载数据库信息");
+//        return dataSourcesMapper.selectAll();
+//    }
 
 }

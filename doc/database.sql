@@ -1,15 +1,15 @@
 create table migrate_datasource
 (
     `id`                bigint(20)   NOT NULL AUTO_INCREMENT COMMENT '主键',
-    `source_database`   varchar(50)  not null DEFAULT '' COMMENT '源数据库',
-    `source_url`        varchar(50)  not null DEFAULT '' COMMENT '源数据库url',
-    `source_username`   varchar(50)  not null DEFAULT '' COMMENT '源数据库用户名',
-    `source_password`   varchar(50)  not null DEFAULT '' COMMENT '源数据库密码',
+    `origin_database`   varchar(50)  not null DEFAULT '' COMMENT '源数据库',
+    `origin_url`        varchar(50)  not null DEFAULT '' COMMENT '源数据库url',
+    `origin_username`   varchar(50)  not null DEFAULT '' COMMENT '源数据库用户名',
+    `origin_password`   varchar(50)  not null DEFAULT '' COMMENT '源数据库密码',
     `target_database`   varchar(50)  not null DEFAULT '' COMMENT '目标数据库',
     `target_url`        varchar(50)  not null DEFAULT '' COMMENT '源数据库url',
     `target_username`   varchar(50)  not null DEFAULT '' COMMENT '源数据库用户名',
     `target_password`   varchar(50)  not null DEFAULT '' COMMENT '源数据库密码',
-    `source_real_table` varchar(100) not null COMMENT '数据源数据库真实表',
+    `origin_real_table` varchar(100) not null COMMENT '数据源数据库真实表',
     `target_real_table` varchar(100) not null COMMENT '目标数据库真实表',
     `migrate_rule_id`   int(8)                DEFAULT NULL COMMENT '迁移规则ID',
     `create_time`            datetime              default CURRENT_TIMESTAMP not null COMMENT '记录创建时间',
@@ -29,3 +29,8 @@ create table migrate_rule
     `update_time`            datetime              default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP COMMENT '记录更新时间',
     PRIMARY KEY (`id`)
 ) comment '迁移数据规则表'
+
+#查询数据库表源信息
+select distinct TABLE_NAME from information_schema.columns where table_schema= 'sharding_migrate';
+#查询数据库表
+select TABLE_NAME,COLLATION_NAME,COLUMN_COMMENT,DATA_TYPE from information_schema.columns where table_schema= 'sharding_migrate' and table_name = 'migrate_datasource';

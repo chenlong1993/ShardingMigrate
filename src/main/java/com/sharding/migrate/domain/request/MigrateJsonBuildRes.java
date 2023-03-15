@@ -1,6 +1,5 @@
 package com.sharding.migrate.domain.request;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

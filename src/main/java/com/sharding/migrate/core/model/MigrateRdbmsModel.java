@@ -1,7 +1,6 @@
 package com.sharding.migrate.core.model;
 
 import com.sharding.migrate.domain.Databasesource;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
