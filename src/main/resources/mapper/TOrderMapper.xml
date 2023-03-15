@@ -17,4 +17,11 @@
     *
     from t_order
   </select>
+
+  <select id="selectOne" resultType="com.sharding.migrate.domain.TOrder" parameterType="com.sharding.migrate.domain.request.OrderReq">
+    <!--@mbg.generated-->
+    select
+    *
+    from t_order where id=#{orderReq.id}
+  </select>
 </mapper>
