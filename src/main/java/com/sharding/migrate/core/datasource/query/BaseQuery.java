@@ -72,6 +72,10 @@ public abstract class BaseQuery implements QueryToolInterface {
 
     }
 
+    public String getCurrentSchema() {
+        return currentSchema;
+    }
+
 
     /**
      * 获得原始数据
@@ -495,6 +499,12 @@ public abstract class BaseQuery implements QueryToolInterface {
         return maxVal;
     }
 
+    @Override
+    public List<String> getPrimaryKey(String schema, String tableName) throws SQLException {
+        String primaryKeyByTableSql = sqlBuilder.getPrimaryKeyByTable(schema,tableName);
+        return getColumnsByQuerySql(primaryKeyByTableSql);
+    }
+
     private String getSQLMaxID(String tableName, String primaryKey) {
         return sqlBuilder.getMaxId(tableName, primaryKey);
     }
@@ -540,6 +550,7 @@ public abstract class BaseQuery implements QueryToolInterface {
     }
 
     protected String getSQLQueryTableSchema() {
+
         return sqlBuilder.getSQLQueryTableSchema();
     }
 }

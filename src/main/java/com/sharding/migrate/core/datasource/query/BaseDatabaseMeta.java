@@ -27,12 +27,17 @@ public abstract class BaseDatabaseMeta implements DatabaseInterface {
 
     @Override
     public String getTablePrimaryKey() {
-        return null;
+        return "";
     }
 
     @Override
     public String getSQLQueryColumns(String... args) {
         return null;
+    }
+
+    @Override
+    public String getPrimaryKeyByTable(String schema, String tableName) {
+        return "SELECT column_name FROM INFORMATION_SCHEMA.`KEY_COLUMN_USAGE` WHERE  CONSTRAINT_SCHEMA = ? AND table_name = ? AND constraint_name = 'PRIMARY'\n";
     }
 
 }

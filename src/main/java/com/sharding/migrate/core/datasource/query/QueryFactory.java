@@ -28,6 +28,27 @@ public class QueryFactory {
         throw new UnsupportedOperationException("找不到该类型: ".concat(datasource));
     }
 
+    public static BaseQuery getOriginByDbType(MigrateDatasource migrateDatasource) {
+        //获取dbType
+        String datasource = migrateDatasource.getOriginDatabase();
+        if (JdbcConstants.MYSQL.equals(datasource)) {
+            return getMySQLQueryToolInstance(migrateDatasource);
+        } else if (JdbcConstants.MYSQL.equals(datasource)) {
+            return getPgQueryToolInstance(migrateDatasource);
+        }
+        throw new UnsupportedOperationException("找不到该类型: ".concat(datasource));
+    }
+
+    public static BaseQuery getTargetByDbType(MigrateDatasource migrateDatasource) {
+        //获取dbType
+        String datasource = migrateDatasource.getTargetDatabase();
+        if (JdbcConstants.MYSQL.equals(datasource)) {
+            return getMySQLQueryToolInstance(migrateDatasource);
+        } else if (JdbcConstants.MYSQL.equals(datasource)) {
+            return getPgQueryToolInstance(migrateDatasource);
+        }
+        throw new UnsupportedOperationException("找不到该类型: ".concat(datasource));
+    }
     private static BaseQuery getMySQLQueryToolInstance(MigrateDatasource migrateDatasource) {
         try {
             return new MySQLQueryTool(migrateDatasource);

@@ -2,7 +2,6 @@ package com.sharding.migrate.controller;
 
 import com.sharding.migrate.domain.Databasesource;
 import com.sharding.migrate.service.impl.DatabasesourceService;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

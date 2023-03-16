@@ -85,4 +85,11 @@ public interface QueryToolInterface {
      */
     long getMaxIdVal(String tableName,String primaryKey);
 
+    /**
+     * 获得表下的主键
+     * @param tableName
+     * @return
+     */
+    List<String> getPrimaryKey(String schema, String tableName) throws SQLException;
+
 }

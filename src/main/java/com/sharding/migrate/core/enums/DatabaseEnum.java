@@ -23,6 +23,7 @@ public enum DatabaseEnum {
     public String getName() {
         return name;
     }
+
     public static DatabaseEnum getNameByKey(int key) {
         return Arrays.stream(DatabaseEnum.values()).filter(e -> e.getKey() == key).findAny().orElseThrow(RuntimeException::new);
     }

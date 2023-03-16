@@ -1,15 +1,13 @@
 package com.sharding.migrate.controller;
 
-import com.sharding.migrate.domain.request.MigrateDatasourceRes;
 import com.sharding.migrate.domain.response.MigrateDatasourceReq;
 import com.sharding.migrate.service.MigrateDatasourceService;
-import com.sharding.migrate.service.impl.DatabasesourceService;
 import com.sharding.migrate.service.impl.TOrderService;
-import org.springframework.web.bind.annotation.GetMapping;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -21,6 +19,7 @@ import java.util.List;
  * @Date 2022-12-05 20:29
  * @Description：迁移逻辑配置
  */
+@Api(tags = "迁移逻辑配置")
 @RestController
 @RequestMapping("/migrate")
 public class MigrateController {
@@ -32,9 +31,11 @@ public class MigrateController {
 
     /**
      * 查询所有
+     * search all
      *
      * @return
      */
+    @ApiOperation("查询所有")
     @PostMapping("/getInfo")
     public List<MigrateDatasourceReq> getMigrateInfo() {
         return migrateDatasourceService.selectList();
